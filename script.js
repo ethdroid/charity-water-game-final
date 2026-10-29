@@ -41,12 +41,12 @@ const MILESTONES = [
 
 // ----- Sound effects -----
 const sounds = {
-  drop: new Audio("sounds/drop.wav"),
-  splat: new Audio("sounds/splat.wav"),
-  click: new Audio("sounds/click.wav"),
-  milestone: new Audio("sounds/milestone.wav"),
-  win: new Audio("sounds/win.wav"),
-  lose: new Audio("sounds/lose.wav")
+  drop: new Audio("drop.wav"),
+  splat: new Audio("splat.wav"),
+  click: new Audio("click.wav"),
+  milestone: new Audio("milestone.wav"),
+  win: new Audio("win.wav"),
+  lose: new Audio("lose.wav")
 };
 let soundOn = true;
 
