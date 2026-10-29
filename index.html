@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Drop | A charity: water Game</title>
+  <!-- Montserrat is the closest free match to Proxima Nova, charity: water's brand font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="img/cw_logo.png" alt="charity: water logo" class="logo">
+    <h1>Water Drop</h1>
+    <p class="tagline">Catch clean water. Avoid the dirty drops. Fill the jerry can!</p>
+  </header>
+
+  <main class="game-wrapper">
+    <section class="stats" aria-live="polite">
+      <div class="stat">
+        <span class="stat-label">Score</span>
+        <span id="score" class="stat-value">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Goal</span>
+        <span id="goal" class="stat-value">20</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Time</span>
+        <span id="time" class="stat-value">30</span>
+      </div>
+      <div class="stat can-stat">
+        <img id="jerry-can" src="img/water-can-transparent.png" alt="Jerry can" class="jerry-can">
+      </div>
+    </section>
+
+    <div class="progress" aria-hidden="true">
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
+
+    <section id="game-area" class="game-area">
+      <div id="milestone" class="milestone hidden" aria-live="polite"></div>
+
+      <div id="overlay" class="overlay">
+        <h2 id="overlay-title">Ready to bring clean water?</h2>
+        <p id="overlay-text">
+          Tap the <strong class="blue">blue drops</strong> to collect clean water.<br>
+          Avoid the <strong class="brown">brown drops</strong>. They're dirty!
+        </p>
+
+        <div class="difficulty" role="group" aria-label="Choose difficulty">
+          <button class="mode-btn" data-mode="easy">Easy</button>
+          <button class="mode-btn active" data-mode="normal">Normal</button>
+          <button class="mode-btn" data-mode="hard">Hard</button>
+        </div>
+        <p id="mode-info" class="mode-info"></p>
+
+        <button id="start-btn" class="btn btn-primary">Start Game</button>
+      </div>
+    </section>
+
+    <p id="message" class="message" aria-live="polite">Every drop counts.</p>
+
+    <div class="controls">
+      <button id="reset-btn" class="btn btn-secondary">Reset</button>
+      <button id="sound-btn" class="btn btn-secondary" aria-pressed="true">🔊 Sound On</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-text">Millions of people still live without clean water. charity: water is changing that, one project at a time.</p>
+    <nav class="footer-links" aria-label="charity: water links">
+      <a href="https://www.charitywater.org/" target="_blank" rel="noopener">Visit charity: water</a>
+      <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener" class="btn btn-primary">Donate Now</a>
+      <a href="https://www.charitywater.org/global-water-crisis" target="_blank" rel="noopener">Learn About the Water Crisis</a>
+    </nav>
+    <p class="footer-small">A fan-made game inspired by charity: water's mission.</p>
+  </footer>
+
+  <canvas id="confetti" class="confetti"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>

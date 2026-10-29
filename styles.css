@@ -1,0 +1,432 @@
+/* charity: water brand colors */
+:root {
+  --cw-yellow: #FFC907;
+  --cw-blue: #2E9DF7;
+  --cw-light-blue: #8BD1CB;
+  --cw-green: #4FCB53;
+  --cw-orange: #FF902A;
+  --cw-red: #F5402C;
+  --cw-dark: #131313;
+  --cw-cream: #FFF7E1;
+  --dirty: #8B5E3C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Brand font: Montserrat stands in for Proxima Nova */
+body,
+button {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+body {
+  background: var(--cw-cream);
+  color: var(--cw-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.site-header {
+  width: 100%;
+  background: var(--cw-yellow);
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.logo {
+  height: 64px;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 14px;
+  border: 3px solid var(--cw-dark);
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Main game */
+.game-wrapper {
+  width: 100%;
+  max-width: 720px;
+  padding: 20px 16px;
+  flex: 1;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stat {
+  flex: 1;
+  background: white;
+  border: 3px solid var(--cw-dark);
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.progress {
+  height: 14px;
+  background: white;
+  border: 3px solid var(--cw-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--cw-blue);
+  transition: width 0.2s ease;
+}
+
+.game-area {
+  position: relative;
+  height: 60vh;
+  min-height: 360px;
+  max-height: 520px;
+  background: linear-gradient(to bottom, #dff3ff, #ffffff);
+  border: 3px solid var(--cw-dark);
+  border-radius: 16px;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+/* Drops */
+.drop {
+  position: absolute;
+  top: -60px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.drop.clean {
+  background: var(--cw-blue);
+  box-shadow: inset -6px -6px 0 rgba(255, 255, 255, 0.35);
+}
+
+.drop.dirty {
+  background: var(--dirty);
+  box-shadow: inset -6px -6px 0 rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fall {
+  to {
+    top: 110%;
+  }
+}
+
+/* Floating "+1" / "-2" text */
+.pop {
+  position: absolute;
+  font-weight: 800;
+  font-size: 1.4rem;
+  pointer-events: none;
+  animation: floatUp 0.7s ease-out forwards;
+}
+
+.pop.good { color: var(--cw-green); }
+.pop.bad { color: var(--cw-red); }
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* Start / end overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 247, 225, 0.95);
+  z-index: 5;
+}
+
+.overlay h2 {
+  font-size: 1.6rem;
+}
+
+.overlay p {
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+.blue { color: var(--cw-blue); }
+.brown { color: var(--dirty); }
+
+.message {
+  text-align: center;
+  font-weight: 600;
+  min-height: 1.5em;
+  margin: 12px 0;
+}
+
+/* Buttons */
+.btn {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: 3px solid var(--cw-dark);
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: var(--cw-yellow);
+  color: var(--cw-dark);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--cw-dark);
+}
+
+/* Footer */
+.site-footer {
+  width: 100%;
+  background: var(--cw-dark);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+}
+
+.footer-text {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 24px;
+  margin-bottom: 16px;
+}
+
+.footer-links a:not(.btn) {
+  color: var(--cw-yellow);
+  font-weight: 600;
+}
+
+.footer-links .btn {
+  border-color: var(--cw-yellow);
+}
+
+.footer-small {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Jerry can in the stats bar */
+.can-stat {
+  flex: 0 0 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jerry-can {
+  height: 44px;
+}
+
+.jerry-can.wiggle {
+  animation: wiggle 0.3s ease;
+}
+
+@keyframes wiggle {
+  25% { transform: rotate(-12deg) scale(1.1); }
+  75% { transform: rotate(12deg) scale(1.1); }
+}
+
+/* Timer turns red when time is almost up */
+.stat-value.urgent {
+  color: var(--cw-red);
+}
+
+/* Game area flashes when you tap a drop */
+.game-area.hit-clean {
+  animation: flashClean 0.3s ease;
+}
+
+.game-area.hit-dirty {
+  animation: flashDirty 0.3s ease;
+}
+
+@keyframes flashClean {
+  50% { box-shadow: inset 0 0 0 6px var(--cw-blue); }
+}
+
+@keyframes flashDirty {
+  50% { box-shadow: inset 0 0 0 6px var(--dirty); }
+}
+
+/* Milestone banner */
+.milestone {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  background: var(--cw-yellow);
+  border: 3px solid var(--cw-dark);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-weight: 800;
+  text-align: center;
+  z-index: 4;
+  pointer-events: none;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: translateX(-50%) scale(0.6); opacity: 0; }
+}
+
+/* Difficulty buttons */
+.difficulty {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  border: 3px solid var(--cw-dark);
+  border-radius: 30px;
+  background: white;
+  color: var(--cw-dark);
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: var(--cw-blue);
+  color: white;
+}
+
+.mode-info {
+  font-size: 0.9rem;
+  font-weight: 600;
+  max-width: 340px;
+}
+
+.overlay a {
+  color: var(--cw-blue);
+  font-weight: 800;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Confetti canvas sits on top of everything but ignores clicks */
+.confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .drop {
+    width: 52px;
+    height: 52px;
+  }
+
+  .game-area {
+    height: 55vh;
+  }
+
+  .can-stat {
+    flex: 0 0 52px;
+  }
+
+  .jerry-can {
+    height: 34px;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+}
